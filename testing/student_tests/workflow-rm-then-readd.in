@@ -1,0 +1,20 @@
+# 测试：rm 后重新 add 同一文件 → commit → 文件重新被追踪
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "first commit"
+<<<
+# rm 掉 wug.txt（会从工作目录删除）
+> rm wug.txt
+<<<
+* wug.txt
+# 重新创建并 add
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> commit "re-added wug"
+<<<
+# 工作目录文件应为 notwug 版本
+= wug.txt notwug.txt

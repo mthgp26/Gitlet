@@ -1,0 +1,23 @@
+# 测试：add 后把文件改回原始版本 → add → 应从暂存区移除（内容与 HEAD 相同）
+# 尝试 commit 应失败（无 change）
+> init
+<<<
++ f.txt wug.txt
+> add f.txt
+<<<
+> commit "first"
+<<<
+# 修改文件内容并 add
++ f.txt notwug.txt
+> add f.txt
+<<<
+# 又把文件改回原始版本（应与 HEAD 一致），add 后不应 stage
++ f.txt wug.txt
+> add f.txt
+<<<
+# 尝试 commit 应失败（无 staged change）
+> commit "should fail"
+No changes added to the commit.
+<<<
+# 确认 f.txt 内容为原始版本
+= f.txt wug.txt

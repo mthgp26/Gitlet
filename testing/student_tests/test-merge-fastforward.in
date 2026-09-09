@@ -1,0 +1,24 @@
+# master 未前进、branch 前进 → fast-forward，检出 branch 版本且不生成合并提交
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "c1"
+<<<
+> branch branch
+<<<
+> checkout branch
+<<<
++ a.txt notwug.txt
+> add a.txt
+<<<
+> commit "branch c2"
+<<<
+> checkout master
+<<<
+> merge branch
+Current branch fast-forwarded.
+<<<
+# master 现在应含 branch 的文件版本
+= a.txt notwug.txt

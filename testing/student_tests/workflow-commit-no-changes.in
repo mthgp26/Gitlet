@@ -1,0 +1,12 @@
+# 测试：add 后马上 rm（unstage），然后 commit 应报错 "No changes added"
+> init
+<<<
++ f.txt wug.txt
+> add f.txt
+<<<
+> rm f.txt
+<<<
+# 此时暂存区已空，commit 应失败
+> commit "should fail"
+No changes added to the commit.
+<<<

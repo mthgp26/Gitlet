@@ -1,0 +1,20 @@
+# checkout -- [文件名]：从 HEAD 恢复文件
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "first"
+<<<
+# 修改文件
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> commit "second"
+<<<
+# wug.txt 当前是 notwug 版本
+= wug.txt notwug.txt
+# 从 HEAD 恢复，但 HEAD 就是 second commit，所以还是 notwug
+> checkout -- wug.txt
+<<<
+= wug.txt notwug.txt

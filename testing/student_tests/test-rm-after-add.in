@@ -1,0 +1,14 @@
+# 测试：先 add 后 rm，文件应从暂存区移除
+> init
+<<<
++ f.txt wug.txt
+> add f.txt
+<<<
+> rm f.txt
+<<<
+# 此时暂存区已空 → commit 应失败
+> commit "should fail"
+No changes added to the commit.
+<<<
+# f.txt 未被追踪也不在暂存区，应仍存在于工作目录
+= f.txt wug.txt

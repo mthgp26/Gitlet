@@ -1,0 +1,16 @@
+# 完整修改周期测试：add → commit → modify → add → commit → verify content
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "version 1"
+<<<
+# 修改文件内容
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> commit "version 2"
+<<<
+# 最终工作目录内容应为 notwug
+= wug.txt notwug.txt

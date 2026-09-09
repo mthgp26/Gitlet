@@ -1,0 +1,6 @@
+# 测试：add 不存在的文件应报错
+> init
+<<<
+> add no-such-file.txt
+File does not exist.
+<<<

@@ -1,0 +1,32 @@
+# 一般合并（无冲突）：master 改 a.txt，branch 改 b.txt
+# 合并后 a.txt 保留 master 版，b.txt 采用 branch 版
+> init
+<<<
++ a.txt wug.txt
++ b.txt wug.txt
+> add a.txt
+<<<
+> add b.txt
+<<<
+> commit "c1"
+<<<
+> branch branch
+<<<
++ a.txt notwug.txt
+> add a.txt
+<<<
+> commit "master change"
+<<<
+> checkout branch
+<<<
++ b.txt notwug.txt
+> add b.txt
+<<<
+> commit "branch change"
+<<<
+> checkout master
+<<<
+> merge branch
+<<<
+= a.txt notwug.txt
+= b.txt notwug.txt

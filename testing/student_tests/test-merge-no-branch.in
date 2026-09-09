@@ -1,0 +1,11 @@
+# merge 一个不存在的分支应报错
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "c1"
+<<<
+> merge nonexistent
+A branch with that name does not exist.
+<<<

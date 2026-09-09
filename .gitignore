@@ -1,0 +1,13 @@
+# Maven build output
+target/
+
+# Gitlet runtime state (created in whatever dir you run it)
+.gitlet/
+
+# Java bytecode
+*.class
+
+# Test harness leftovers
+testing/**/__pycache__/
+testing/*.dir
+*.pyc

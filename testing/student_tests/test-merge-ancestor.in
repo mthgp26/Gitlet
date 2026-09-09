@@ -1,0 +1,19 @@
+# 给定分支是当前分支的祖先 → 什么都不做
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "c1"
+<<<
+> branch branch
+<<<
++ a.txt notwug.txt
+> add a.txt
+<<<
+> commit "master c2"
+<<<
+> merge branch
+Given branch is an ancestor of the current branch.
+<<<
+= a.txt notwug.txt

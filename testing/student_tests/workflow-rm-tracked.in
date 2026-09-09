@@ -1,0 +1,17 @@
+# 测试：追踪文件 → rm（标记删除+删除工作目录文件）→ commit
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "added wug"
+<<<
+> rm wug.txt
+<<<
+# rm 后 wug.txt 应从工作目录消失
+* wug.txt
+# commit 这个删除
+> commit "removed wug"
+<<<
+# 验证 wug.txt 仍然不存在
+* wug.txt

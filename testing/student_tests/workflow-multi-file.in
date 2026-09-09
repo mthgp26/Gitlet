@@ -1,0 +1,29 @@
+# 多文件混合操作：add 两个文件 → commit → 修改一个 → add 另一个 → rm 一个 → commit
+> init
+<<<
++ a.txt wug.txt
++ b.txt notwug.txt
+> add a.txt
+<<<
+> add b.txt
+<<<
+> commit "add a and b"
+<<<
+# 修改 a.txt
++ a.txt notwug.txt
+> add a.txt
+<<<
+# rm b.txt（追踪文件，会从CWD删除）
+> rm b.txt
+<<<
+* b.txt
+# 添加新文件 c.txt
++ c.txt wug.txt
+> add c.txt
+<<<
+> commit "update a, remove b, add c"
+<<<
+# 验证最终文件状态
+= a.txt notwug.txt
+* b.txt
+= c.txt wug.txt

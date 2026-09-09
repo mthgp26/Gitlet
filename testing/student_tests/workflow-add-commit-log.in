@@ -1,0 +1,6 @@
+# 模拟完整工作流：add → commit（两次）→ 文件状态验证
+# 使用 I 命令复用 setup 脚本，减少重复代码
+I setup-basic.inc
+# 第二次 commit 后验证文件存在且内容正确
+= a.txt notwug.txt
+= b.txt notwug.txt

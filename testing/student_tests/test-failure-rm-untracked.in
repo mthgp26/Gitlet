@@ -1,0 +1,6 @@
+# 测试：rm 一个既未暂存也未被追踪的文件应报错
+> init
+<<<
+> rm f.txt
+No reason to remove the file.
+<<<

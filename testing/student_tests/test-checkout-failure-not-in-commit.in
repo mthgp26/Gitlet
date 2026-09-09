@@ -1,0 +1,6 @@
+# checkout -- [文件名]：文件不在 HEAD 中应报错
+> init
+<<<
+> checkout -- nonexistent.txt
+File does not exist in that commit.
+<<<

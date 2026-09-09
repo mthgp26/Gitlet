@@ -1,0 +1,34 @@
+# checkout [分支名]：切换分支
+I definitions.inc
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "master commit"
+<<<
+# 创建新分支 other
+> branch other
+<<<
+# 在 master 上再提交一次
++ b.txt notwug.txt
+> add b.txt
+<<<
+> commit "master second"
+<<<
+# 切换到 other（只有 a.txt，没有 b.txt）
+> checkout other
+<<<
+# other 分支上应有 a.txt，不应有 b.txt
+= a.txt wug.txt
+* b.txt
+# 验证当前分支确实是 other：再提交一次，b.txt 仍不应出现
++ c.txt notwug.txt
+> add c.txt
+<<<
+> commit "other commit"
+<<<
+# a.txt 和 c.txt 存在，b.txt 不存在
+= a.txt wug.txt
+= c.txt notwug.txt
+* b.txt

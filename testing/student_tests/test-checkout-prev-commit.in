@@ -1,0 +1,40 @@
+# checkout [commitID] -- [文件名]：从指定 commit 恢复文件
+# 先 import 定义，以便捕获 commit ID
+I definitions.inc
+> init
+<<<
++ wug.txt wug.txt
+> add wug.txt
+<<<
+> commit "version 1"
+<<<
++ wug.txt notwug.txt
+> add wug.txt
+<<<
+> commit "version 2"
+<<<
+# 当前是 notwug
+= wug.txt notwug.txt
+# 用 log 获取第一个 commit 的 ID
+> log
+===
+${COMMIT_HEAD}
+version 2
+
+===
+${COMMIT_HEAD}
+version 1
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+# ${1} = 最新提交 (version 2)，${2} = 上一个提交 (version 1)。
+# 这里需要 version 1 的 ID 才能恢复到 wug 版本。
+D CID "${2}"
+# 从 version 1 恢复 wug.txt
+> checkout ${CID} -- wug.txt
+<<<
+# 应恢复为 wug 版本
+= wug.txt wug.txt

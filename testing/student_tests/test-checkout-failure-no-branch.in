@@ -1,0 +1,6 @@
+# checkout [分支名]：不存在的分支应报错
+> init
+<<<
+> checkout nonexistent
+No such branch exists.
+<<<

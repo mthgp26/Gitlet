@@ -1,0 +1,28 @@
+# 两个分支以不同方式修改同一文件 → 冲突标记
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "c1"
+<<<
+> branch branch
+<<<
++ a.txt notwug.txt
+> add a.txt
+<<<
+> commit "master edit"
+<<<
+> checkout branch
+<<<
++ a.txt other.txt
+> add a.txt
+<<<
+> commit "branch edit"
+<<<
+> checkout master
+<<<
+> merge branch
+Encountered a merge conflict.
+<<<
+= a.txt conflict-expected.txt

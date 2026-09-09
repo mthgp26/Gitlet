@@ -1,0 +1,25 @@
+# 测试：init → add → commit → rm → commit 完整链路
+# 验证文件在 commit 后被追踪，rm 后从工作目录删除，commit 后不再追踪
+> init
+<<<
++ a.txt wug.txt
++ b.txt notwug.txt
+> add a.txt
+<<<
+> add b.txt
+<<<
+> commit "add two files"
+<<<
+= a.txt wug.txt
+= b.txt notwug.txt
+# rm 掉 a.txt（应同时删除工作目录文件）
+> rm a.txt
+<<<
+* a.txt
+# b.txt 仍然存在
+= b.txt notwug.txt
+> commit "remove a"
+<<<
+# 最终状态验证
+* a.txt
+= b.txt notwug.txt

@@ -1,0 +1,11 @@
+# 合并自身分支应报错
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "c1"
+<<<
+> merge master
+Cannot merge a branch with itself.
+<<<

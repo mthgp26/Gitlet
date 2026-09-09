@@ -1,0 +1,16 @@
+# 存在暂存的改动时 merge 应报错
+> init
+<<<
++ a.txt wug.txt
+> add a.txt
+<<<
+> commit "c1"
+<<<
+> branch branch
+<<<
++ a.txt notwug.txt
+> add a.txt
+<<<
+> merge branch
+You have uncommitted changes.
+<<<
